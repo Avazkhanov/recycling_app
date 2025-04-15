@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:recycling_app/core/services/location_service.dart';
 import 'package:recycling_app/core/utils/app_exports/app_export.dart';
+import 'package:recycling_app/core/utils/app_secret/app_secret.dart';
 
 part 'map_event.dart';
 part 'map_state.dart';
@@ -141,7 +142,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     try {
       final polylinePoints = PolylinePoints();
       final result = await polylinePoints.getRouteBetweenCoordinates(
-        googleApiKey: 'AIzaSyDUsGcgAdeUmbI-5rJ_6YnL_zrSGc0w5ZU',
+        googleApiKey: AppSecret.googleMapApi,
         request: PolylineRequest(
           origin: PointLatLng(
               state.userLocation!.latitude, state.userLocation!.longitude),
