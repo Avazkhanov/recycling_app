@@ -41,14 +41,14 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
       ),
       body: BlocBuilder<ScanBloc, ScanState>(
         builder: (context, state) {
-          return Column(
+          return ListView(
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 17.w),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(85.r),
                   child: AspectRatio(
-                    aspectRatio: .7.sp,
+                    aspectRatio: 4 / 6,
                     child: Stack(
                       children: [
                         MobileScanner(
@@ -59,7 +59,9 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
                                 setState(() {
                                   size = barcode.size;
                                 });
-                                context.read<ScanBloc>().add(QRCodeScanned(barcode.rawValue!));
+                                context
+                                    .read<ScanBloc>()
+                                    .add(QRCodeScanned(barcode.rawValue!));
                                 break;
                               } else {
                                 setState(() {
@@ -107,7 +109,9 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
                             GlobalButton(
                               title: "Close",
                               onTap: () {
-                                context.read<ScanBloc>().add(QRCodeScanned(null));
+                                context
+                                    .read<ScanBloc>()
+                                    .add(QRCodeScanned(null));
                                 AppRouter.router.pop();
                               },
                             ),

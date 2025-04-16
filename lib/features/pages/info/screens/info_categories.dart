@@ -56,12 +56,15 @@ class _InfoCategoriesState extends State<InfoCategories> {
               return Column(
                 children: [
                   30.verticalSpace,
-                  Image.asset(
-                    index == 0
-                        ? categoryModel.imagePath
-                        : categoryModel
-                            .description.commonItems[index - 1].imagePath,
-                    height: 150.h,
+                  Hero(
+                    tag: categoryModel.title,
+                    child: Image.asset(
+                      index == 0
+                          ? categoryModel.imagePath
+                          : categoryModel
+                              .description.commonItems[index - 1].imagePath,
+                      height: 150.h,
+                    ),
                   ),
                   Expanded(
                     child: Container(

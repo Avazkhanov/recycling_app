@@ -35,10 +35,13 @@ class CategoryItem extends StatelessWidget {
                 color: AppColors.white,
               ),
             ),
-            Image.asset(
-              category.imagePath,
-              height: 97.h,
-              width: 97.w,
+            Hero(
+              tag: category.title,
+              child: Image.asset(
+                category.imagePath,
+                height: 97.h,
+                width: 97.w,
+              ),
             ),
           ],
         ),

@@ -27,7 +27,7 @@ class _InfoScreenState extends State<InfoScreen> {
       ),
       body: SafeArea(
         child: CustomScrollView(
-          slivers: <Widget>[
+          slivers: [
             SliverPadding(
               padding: EdgeInsets.fromLTRB(41.w, 46.w, 0, 8.h),
               sliver: SliverToBoxAdapter(
