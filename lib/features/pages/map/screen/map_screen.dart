@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recycling_app/core/utils/app_exports/app_export.dart';
-import 'package:recycling_app/features/pages/map/widgets/marker_item.dart';
+import 'package:recycling_app/features/pages/map/widgets/map_search.dart';
+import 'package:recycling_app/features/pages/map/widgets/marker_modal.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -12,7 +13,6 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  final TextEditingController textEditingController = TextEditingController();
   Size screenSize = Size.zero;
 
   @override
@@ -63,21 +63,13 @@ class _MapScreenState extends State<MapScreen> {
                 ),
                 if (state.userLocation == null &&
                     state.userLocationStatus.isLoading)
-                   Align(
+                  Align(
                     alignment: Alignment.center,
                     child: CircularProgressIndicator(
                       color: AppColors.c70B458,
                     ),
                   ),
-                Positioned(
-                  top: screenSize.height * .11.sp,
-                  left: 0,
-                  right: 0,
-                  child: GlobalTextField(
-                    hintText: "EX) STATE COLLEGE, PA",
-                    textEditingController: textEditingController,
-                  ),
-                ),
+                const MapSearch(),
                 Positioned(
                   bottom: screenSize.height * .02.sp,
                   right: screenSize.width * .2.sp,
